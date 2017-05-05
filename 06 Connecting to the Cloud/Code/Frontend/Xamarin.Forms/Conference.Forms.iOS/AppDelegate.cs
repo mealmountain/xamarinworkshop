@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 using Foundation;
 using UIKit;
 
@@ -26,6 +29,8 @@ namespace Conference.Forms.iOS
 		{
 			// Initialize Azure Mobile App Client for the current platform
 			CurrentPlatform.Init();
+
+			MobileCenter.Start("0270acb5-6e2f-4d04-8d9f-f3ad857eccd4", typeof(Analytics), typeof(Crashes));
 
 			global::Xamarin.Forms.Forms.Init();
 			LoadApplication(new App());
