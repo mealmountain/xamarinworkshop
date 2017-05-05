@@ -1,13 +1,17 @@
-﻿<TabbedPage
+<TabbedPage
     x:Class="Conference.Forms.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conference"
-    Title="Conference">
+    Title="Dotnet Colgne">
 
     <!-- Sessions Tab -->
     <ContentPage Title="Sessions">
-        <ListView ItemsSource="{Binding Sessions}" ItemSelected="Session_ItemSelected">
+		<!--Session_ItemSelected bindet Methode an ItemSelected-->
+        <ListView 
+			
+			ItemsSource="{Binding Sessions}" 
+			ItemSelected="Session_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell
@@ -20,7 +24,10 @@
 
     <!-- Speakers Tab -->
     <ContentPage Title="Speakers">
-        <ListView ItemsSource="{Binding Speakers}" ItemSelected="Speaker_ItemSelected">
+        <ListView 
+			
+			ItemsSource="{Binding Speakers}" 
+			ItemSelected="Speaker_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell

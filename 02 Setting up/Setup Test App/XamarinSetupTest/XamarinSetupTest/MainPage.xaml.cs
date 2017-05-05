@@ -11,7 +11,9 @@ namespace XamarinSetupTest
     {
         public MainPage()
         {
+			
             InitializeComponent();
+			DisplayAlert("Starting", "Yes, everything looks good!", "Cool");
         }
 
         private void Button_Click(object sender, EventArgs e)

@@ -18,21 +18,27 @@ namespace Conference.Forms
 
 		public AzureConferenceService()
 		{
-			client = new MobileServiceClient("https://xamarinworkshopapp.azurewebsites.net");
+			// Lädt die Daten aus der Azure Mobile App Seite
+			//client = new MobileServiceClient("https://dotnetcolognebackend.azurewebsites.net");
+			client = new MobileServiceClient("https://dotnetcolognemealmountain.azurewebsites.net");
 		}
 
 		public async Task InitAsync()
 		{
 			// Setup local database
 			var path = Path.Combine(MobileServiceClient.DefaultDatabasePath, "syncstore.db");
+			// legt die Datenbank an wenn nicht bereits vorhanden
 			var store = new MobileServiceSQLiteStore(path);
 
 			// Define local tables to sync with
 			store.DefineTable<Session>();
 			store.DefineTable<Speaker>();
 
+
+			// Syncronisierung aktivieren
 			// Initialize SyncContext
 			await client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+
 
 			// Get our sync table that will call out to azure
 			sessionTable = client.GetSyncTable<Session>();
@@ -53,11 +59,13 @@ namespace Conference.Forms
 			return await speakerTable.ToListAsync();
 		}
 
+		// Synchronisiert Daten von Azure in SQLite
 		public async Task SyncAsync()
 		{
 			try
 			{
 				await client.SyncContext.PushAsync();
+				// "allSessions" ist meine ID, mit welcher sich der Server merkt, dass ich die Dtaen bereits habe.
 				await sessionTable.PullAsync("allSessions", sessionTable.CreateQuery());
 				await speakerTable.PullAsync("allSpeakers", speakerTable.CreateQuery());
 			}

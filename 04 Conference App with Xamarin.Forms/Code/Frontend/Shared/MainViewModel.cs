@@ -40,7 +40,7 @@ namespace Conference.Frontend
             conferenceService = conferenceServiceImpl;
         }
 
-        public async Task RefreshAsync()
+		public async Task RefreshAsync()
         {
             IsBusy = true;
 

@@ -203,6 +203,7 @@ Global
 		{C134836E-8739-482D-834E-F3485A949E80}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{C134836E-8739-482D-834E-F3485A949E80}.Release|x64.ActiveCfg = Release|iPhone
 		{C134836E-8739-482D-834E-F3485A949E80}.Release|x86.ActiveCfg = Release|iPhone
+		{C134836E-8739-482D-834E-F3485A949E80}.Ad-Hoc|Any CPU.Build.0 = Ad-Hoc|iPhone
 		{074CD358-853C-4F38-AC7D-E350E5E97E45}.Ad-Hoc|Any CPU.ActiveCfg = Release|x86
 		{074CD358-853C-4F38-AC7D-E350E5E97E45}.Ad-Hoc|Any CPU.Build.0 = Release|x86
 		{074CD358-853C-4F38-AC7D-E350E5E97E45}.Ad-Hoc|Any CPU.Deploy.0 = Release|x86

@@ -17,7 +17,10 @@ namespace Conference.Forms
         public MainPage()
         {
             InitializeComponent();
+			//https://github.com/robinmanuelthiel/xamarinworkshop/tree/master/04%20Conference%20App%20with%20Xamarin.Forms
+			//5.7 Play the Dependency Injection game
 
+			// An dieser Stelle: Dependency Injection ; Wird später per Tool überarbeitet.
             var httpService = new FormsHttpService();
             var conferenceService = new HttpConferenceService(httpService);
             viewModel = new MainViewModel(conferenceService);
@@ -27,10 +30,13 @@ namespace Conference.Forms
 
         protected override async void OnAppearing()
         {
+				// Immer wenn ich auf die Seite komme, wird dies aufgerufen. ALso werde hier die Daten Refreshed.
             base.OnAppearing();
             await viewModel.RefreshAsync();
         }
 
+
+		// Navigation auf neue Page
 		private void Session_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
 		{
 			// Get selected session

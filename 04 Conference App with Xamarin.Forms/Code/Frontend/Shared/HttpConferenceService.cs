@@ -17,10 +17,15 @@ namespace Conference.Frontend
             httpService = httpServiceImpl;
         }
 
+
+
+
         public async Task<List<Session>> GetSessionsAsync()
         {
-            var json = await httpService.GetStringAsync("https://raw.githubusercontent.com/robinmanuelthiel/xamarinworkshop/master/04%20Conference%20App%20with%20Xamarin.Forms/Mock/mocksessions.json");
-            var sessions = JsonConvert.DeserializeObject<List<Session>>(json);
+            //var json = await httpService.GetStringAsync("https://raw.githubusercontent.com/robinmanuelthiel/xamarinworkshop/master/04%20Conference%20App%20with%20Xamarin.Forms/Mock/mocksessions.json");
+            var json = await httpService.GetStringAsync("http://mealmountain.de/json/config.txt");
+
+			var sessions = JsonConvert.DeserializeObject<List<Session>>(json);
             return sessions;
         }
 
@@ -28,7 +33,9 @@ namespace Conference.Frontend
         {
             var json = await httpService.GetStringAsync("https://raw.githubusercontent.com/robinmanuelthiel/xamarinworkshop/master/04%20Conference%20App%20with%20Xamarin.Forms/Mock/mockspeakers.json");
             var speakers = JsonConvert.DeserializeObject<List<Speaker>>(json);
+
             return speakers;
+
         }
     }
 }

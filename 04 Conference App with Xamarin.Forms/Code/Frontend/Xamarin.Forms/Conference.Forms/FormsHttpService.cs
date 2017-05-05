@@ -1,5 +1,8 @@
 ﻿using Conference.Frontend;
+// von Paul Bets, nimmt den Nativen Http Stack der entsprechenden Umgebung
+// https://www.nuget.org/packages/modernhttpclient/
 using ModernHttpClient;
+// Hinzufügen des Microsoft NuGet  Microsoft.Net.Http
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -12,6 +15,7 @@ namespace Conference.Forms
                 
         public async Task<string> GetStringAsync(string url)
         {
+			// Hier wird HTTP aufgerufen 
             return await httpClient.GetStringAsync(url);
         }
     }
